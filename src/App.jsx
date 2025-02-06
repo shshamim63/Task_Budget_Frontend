@@ -1,8 +1,9 @@
-import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import Router from "./Router";
+import GlobalStyles from "./styles/GlobalStyles";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,9 +17,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <GlobalStyles />
+      <Router />
+      <Toaster />
     </QueryClientProvider>
   );
 }

@@ -1,22 +1,16 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-import Dashboard from "./pages/Dashboard";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={
-          
-        }/>
-        <Route />
+        <Route index element={<Navigate replace to="home" />} />
+        <Route path="home" element={<Home />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
-    // <Routes>
-    //   <Route index element={<Navigate replace to="dashboard" />} />
-    //   <Route path="dashboard" element={<Dashboard />} />
-    //   <Route path element={<Login />} />
-    // </Routes>
   );
 };
 
